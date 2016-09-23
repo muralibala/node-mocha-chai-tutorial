@@ -2,6 +2,11 @@ machine:
   node:
     # Circle will use node v5.9.1
     version: 5.9.1
+
+## Customize dependencies
+dependencies:
+  pre:
+    - npm install mocha
     
 test:
   override:
