@@ -1,2 +1,11 @@
-general:
-  build_dir: test
+machine:
+  node:
+    # Circle will use node v5.9.1
+    version: 5.9.1
+    
+test:
+  override:
+    - mocha test
+  
+  
+  
