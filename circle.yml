@@ -1,4 +1,8 @@
 machine:
+  pre:
+    - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
+  services:
+    - docker
   node:
     # Circle will use node v5.9.1
     version: 5.9.1
@@ -7,10 +11,19 @@ machine:
 dependencies:
   pre:
     - npm install mocha
+    - sudo pip install docker-compose
     
 test:
   override:
-    - mocha test
-  
-  
-  
+    - docker-compose up -d
+    - docker-compose run node-mocha-chai-tutorial mocha test
+    
+deployment:
+  hub:
+    branch: /.*/
+    commands:
+      - docker login -e $DOCKER_HUB_EMAIL -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PWD
+      - docker tag node-mocha-chai-tutorial $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:$CIRCLE_SHA1
+      - docker tag node-mocha-chai-tutorial $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:latest
+      - docker push $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:$CIRCLE_SHA1
+      - docker push $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:latest
