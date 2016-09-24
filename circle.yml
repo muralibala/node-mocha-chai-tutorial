@@ -16,7 +16,7 @@ dependencies:
 test:
   override:
     - docker-compose up -d
-    - docker-compose run nodemochachaitutorial_nodemochachaitutorial_node-mocha-chai-tutorial_1_1 mocha test
+    - docker-compose run nodemochachaitutorial_node-mocha-chai-tutorial_1 mocha test
     
 deployment:
   hub:
