@@ -10,7 +10,7 @@ machine:
 ## Customize dependencies
 dependencies:
   pre:
-    - npm install mocha
+    - npm install mocha -g
     - sudo pip install docker-compose
     
 test:
@@ -23,7 +23,7 @@ deployment:
     branch: /.*/
     commands:
       - docker login -e $DOCKER_HUB_EMAIL -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PWD
-      - docker tag node-mocha-chai-tutorial $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:$CIRCLE_SHA1
-      - docker tag node-mocha-chai-tutorial $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:latest
+      - docker tag nodemochachaitutorial_node-mocha-chai-tutorial_1 $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:$CIRCLE_SHA1
+      - docker tag nodemochachaitutorial_node-mocha-chai-tutorial_1 $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:latest
       - docker push $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:$CIRCLE_SHA1
       - docker push $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:latest
