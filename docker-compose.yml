@@ -1,0 +1,5 @@
+version: '2'
+services:
+  nodemochachaitutorial_node-mocha-chai-tutorial_1:
+    build: .
+

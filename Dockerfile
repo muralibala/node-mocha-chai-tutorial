@@ -3,6 +3,6 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app/
 RUN npm install
-COPY server /usr/src/app
-EXPOSE 8080
+COPY . /usr/src/app
+EXPOSE 1337
 CMD [ "npm", "start" ]
