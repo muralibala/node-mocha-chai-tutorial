@@ -16,11 +16,11 @@ dependencies:
 test:
   override:
     - docker-compose up -d
-    - docker-compose run nodemochachaitutorial_node-mocha-chai-tutorial_1 mocha test
+    - mocha test
     
 deployment:
   hub:
-    branch: /.*/
+    branch: [/.*/]
     commands:
       - docker login -e $DOCKER_HUB_EMAIL -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PWD
       - docker tag nodemochachaitutorial_node-mocha-chai-tutorial_1 $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:$CIRCLE_SHA1
