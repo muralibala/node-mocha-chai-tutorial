@@ -1,7 +1,4 @@
 version: '2'
 services:
-  node-mocha-chai-tutorial_1:
-    ports:
-      - "1337:1337"
   mongo:
     image: mongo
