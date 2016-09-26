@@ -1,4 +1,8 @@
 version: '2'
 services:
   mongodb:
-    image: mongo
+    image: mongo:latest
+     volumes:
+      - mongodata:/data/db
+    ports:
+      - "27017:27017"
