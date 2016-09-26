@@ -8,4 +8,5 @@ services:
     build: .
   mongo:
     extends:
-      image: mongo
+      file: common.yml
+      service: mongodb
