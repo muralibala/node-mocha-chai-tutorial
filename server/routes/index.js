@@ -3,7 +3,7 @@ var router = express.Router();
 var Blob = require('../models/blob');
 
 router.get('/', function(req, res, next) {
-  res.send('Hello, World! This is awesome Docker World!!!');
+  res.send('Hello, AWS World! This is awesome Docker World!!!');
 });
 
 // *** api routes *** //
