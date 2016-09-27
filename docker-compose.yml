@@ -8,5 +8,4 @@ services:
             - mongo
     mongo:
         image: mongo
-        ports:
-          - "27017:27017"
+        
