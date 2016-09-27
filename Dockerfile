@@ -6,4 +6,3 @@ RUN npm install
 COPY . /usr/src/app
 EXPOSE 1337
 CMD ["npm", "start"]
-ENTRYPOINT ["/usr/bin/mongod"]

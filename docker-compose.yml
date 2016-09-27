@@ -1,12 +1,11 @@
 version: '2'
-#services:
-#  nodemochachaitutorial_node-mocha-chai-tutorial_1:
-#    build: .  
 
 services:
-  nodemochachaitutorial_node-mocha-chai-tutorial_1:
-    build: .
-  mongo:
-    extends:
-      file: common.yml
-      service: mongodb
+    web:
+        build: .
+        links:
+            - mongo
+    mongo:
+        image: mongo
+        ports:
+          - "27017:27017"
