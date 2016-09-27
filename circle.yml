@@ -28,6 +28,10 @@ deployment:
       - docker tag nodemochachaitutorial_web $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:latest
       - docker push $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:$CIRCLE_SHA1
       - docker push $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:latest
+      - docker tag mongo $DOCKER_HUB_USER_ID/mongo:$CIRCLE_SHA1
+      - docker tag mongo  $DOCKER_HUB_USER_ID/mongo:latest
+      - docker push $DOCKER_HUB_USER_ID/mongo:$CIRCLE_SHA1
+      - docker push $DOCKER_HUB_USER_ID/mongo:latest
       
       
       
