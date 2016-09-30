@@ -12,6 +12,9 @@ dependencies:
   pre:
     - npm install mocha -g
     - sudo pip install docker-compose
+    - docker-compose version
+    - docker version
+    - docker ps - a
     
 test:
   override:
@@ -24,8 +27,8 @@ deployment:
     commands:
       - docker images
       - docker login -e $DOCKER_HUB_EMAIL -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PWD
-      - docker tag nodemochachaitutorial_web $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:$CIRCLE_SHA1
-      - docker tag nodemochachaitutorial_web $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:latest
+      - docker tag nodemochachaitutorial_nodemochachaitutorial_node-mocha-chai-tutorial_1 $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:$CIRCLE_SHA1
+      - docker tag nodemochachaitutorial_nodemochachaitutorial_node-mocha-chai-tutorial_1 $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:latest
       - docker push $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:$CIRCLE_SHA1
       - docker push $DOCKER_HUB_USER_ID/node-mocha-chai-tutorial:latest
       - docker tag mongo $DOCKER_HUB_USER_ID/mongo:$CIRCLE_SHA1
