@@ -1,4 +1,5 @@
 process.env.NODE_ENV = 'prod';
+app.settings.env ='prod';
 
 var express = require('express');
 var router = express.Router();
