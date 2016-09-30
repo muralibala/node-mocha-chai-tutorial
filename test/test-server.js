@@ -1,5 +1,4 @@
 process.env.NODE_ENV = 'test';
-app.settings.env ='test';
 
 var chai = require('chai');
 var chaiHttp = require('chai-http');
