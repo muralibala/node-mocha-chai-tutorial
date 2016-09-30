@@ -18,8 +18,8 @@ dependencies:
 test:
   override:
     - docker-compose up -d
-    - export NODE_ENV=test
-    - mocha test
+    - export NODE_ENV=test mocha
+    
     
 deployment:
   hub:
