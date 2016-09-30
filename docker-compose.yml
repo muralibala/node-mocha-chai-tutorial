@@ -1,11 +1,18 @@
 version: '2'
+#services:
+#  nodemochachaitutorial_node-mocha-chai-tutorial_1:
+#    build: .  
 
 services:
-    web:
-        restart: always
-        build: .
-        links:
-            - mongo
-    mongo:
-        image: mongo
-        
+  nodemochachaitutorial_node-mocha-chai-tutorial_1:
+    build: .
+    links:
+      - db
+    restart: always
+
+  db:
+    image: mongo:latest
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - "27017:27017"
