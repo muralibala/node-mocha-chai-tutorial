@@ -18,7 +18,7 @@ dependencies:
 test:
   override:
     - docker-compose up -d
-    - test mocha
+    - mocha test
         
 deployment:
   hub:
